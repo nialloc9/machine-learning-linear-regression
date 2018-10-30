@@ -7,4 +7,5 @@ A stock forcast application wrote in python using machine learning and a linear 
 
 # Start
 cd project
+
 python3 run main.py
