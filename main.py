@@ -154,11 +154,8 @@ def get_features(d_frame):
 '''
 
 
-def process_features(features_to_process, days):
-    features_to_process = preprocessing.scale(features_to_process)
-    features_to_process = features_to_process[:-days]
-    return features_to_process
-
+def process_features(features_to_process):
+    return  preprocessing.scale(features_to_process)
 
 '''
     Description:
@@ -331,9 +328,11 @@ def main():
 
     features = get_features(data_frame)
 
-    features = process_features(features, forecast_days)
+    features = process_features(features)
 
     recent_features = get_recent_features(features, forecast_days)
+
+    features = features[:-forecast_days]
 
     data_frame.dropna(inplace=True)
 
